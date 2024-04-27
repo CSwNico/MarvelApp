@@ -1,0 +1,48 @@
+
+# macOS Finder-Dateien
+.DS_Store
+
+# Xcode-Projektdateien und -Verzeichnisse
+xcuserdata/
+*.xcworkspace/
+*.xcuserstate
+*.swiftpm
+
+# Xcode-Build-Dateien
+build/
+DerivedData/
+
+# CocoaPods-Verzeichnis
+Pods/
+
+# Carthage-Verzeichnis
+Carthage/
+
+# Swift-Paketabhängigkeiten
+Packages/
+
+# Anwendungsabhängigkeiten und Dateien, die beim Ausführen der Anwendung generiert werden
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.xcscheme
+*.xcworkspacedata
+*.xcsettings
+
+# Generierte Dateien
+*.hmap
+*.ipa
+*.xcarchive
+*.dSYM.zip
+*.dSYM
+*.app
+*.ipa
+
+# Swift-Paketabhangigkeiten
+.swift-dependencies/
