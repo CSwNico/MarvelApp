@@ -23,7 +23,6 @@ struct CharacterThumbnailView: View {
                 Image(uiImage: UIImage(data: thumbnailImage)!)
                     .resizable()
                     .scaledToFill()
-                    .clipShape(Circle())
             } else {
                 LoadingView()
                     .onAppear {

@@ -23,8 +23,11 @@ struct CharacterListView: View {
         NavigationView {
             List {
                 ForEach(characters) { character in
-                    CharacterRow(character: character)
-                        .listRowSeparator(.visible, edges: .all)
+                    ZStack(alignment: .leading) {
+                        NavigationLink(destination: CharacterDetailView(character: character)) { EmptyView() }.opacity(0.0)
+                        CharacterRow(character: character)
+                            .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
+                    }
                 }
             }
             .listStyle(PlainListStyle())
@@ -70,6 +73,7 @@ private struct CharacterRow: View {
             HStack(alignment: .top) {
                 CharacterThumbnailView(character: character)
                     .frame(width: 100, height: 100)
+                    .clipShape(Circle())
                 VStack {
                     Text(character.name)
                         .lineLimit(1)
