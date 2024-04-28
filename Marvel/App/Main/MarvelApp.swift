@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct MarvelApp: App {
+    
+    private var characterAPI = CharacterAPI(characterHandler: CharacterHandler())
+    private var imageAPI = ImageAPI(imageHandler: ImageHandler())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CharacterListView()
         }
+        .modelContainer(for: [CharacterModel.self])
+        .environment(characterAPI)
+        .environment(imageAPI)
     }
 }

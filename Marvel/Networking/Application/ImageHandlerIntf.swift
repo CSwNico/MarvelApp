@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol ImageHandlerIntf {
+    func getData(url: URL, completion: @escaping (Data?) -> ())
+}

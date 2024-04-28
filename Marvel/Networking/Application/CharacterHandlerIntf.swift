@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol CharacterHandlerIntf {
+    func fetchCharacters(offset: Int, completion: @escaping (CharactersDTO) -> ())
+}

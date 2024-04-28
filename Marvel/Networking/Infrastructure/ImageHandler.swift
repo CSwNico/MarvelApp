@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+class ImageHandler: ImageHandlerIntf {
+    
+    func getData(url: URL, completion: @escaping (Data?) -> ()) {
+        URLSession.shared.dataTask(with: url) { (data, respone, error) in
+            DispatchQueue.main.async {
+                completion(data)
+            }
+        }.resume()
+    }
+}
