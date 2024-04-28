@@ -14,15 +14,22 @@ struct CharacterThumbnailView: View {
     @Environment(ImageAPI.self) private var imageAPI
     
     var body: some View {
-        if let thumbnailImage = character.thumbnailImage {
-            Image(uiImage: UIImage(data: thumbnailImage)!)
+        if character.thumbnailPath.contains("image_not_available") {
+            Image(systemName: "person.circle")
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
         } else {
-            ProgressView()
-                .onAppear {
-                    loadImage()
-                }
+            if let thumbnailImage = character.thumbnailImage {
+                Image(uiImage: UIImage(data: thumbnailImage)!)
+                    .resizable()
+                    .scaledToFill()
+                    .clipShape(Circle())
+            } else {
+                LoadingView()
+                    .onAppear {
+                        loadImage()
+                    }
+            }
         }
     }
     

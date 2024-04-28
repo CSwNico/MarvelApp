@@ -24,8 +24,10 @@ struct CharacterListView: View {
             List {
                 ForEach(characters) { character in
                     CharacterRow(character: character)
+                        .listRowSeparator(.visible, edges: .all)
                 }
             }
+            .listStyle(PlainListStyle())
             .navigationTitle("Characters")
             .onAppear {
                 if characters.count == 0 {
@@ -64,10 +66,22 @@ private struct CharacterRow: View {
     @Bindable var character: CharacterModel
     
     var body: some View {
-        HStack {
-            CharacterThumbnailView(character: character)
-            Text(character.name)
+        VStack {
+            HStack(alignment: .top) {
+                CharacterThumbnailView(character: character)
+                    .frame(width: 100, height: 100)
+                VStack {
+                    Text(character.name)
+                        .lineLimit(1)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .font(.headline)
+                    Text(character.information)
+                        .font(.subheadline)
+                }
+                .padding(.leading)
+            }
         }
+        .frame(height: 100)
     }
 }
 
